@@ -4,7 +4,6 @@ module.exports = {
     connection: {
       filename: "./data/hobbits.db3",
     },
-    useNullAsDefault: true,
     migrations: {
       directory: "./data/migrations",
     },
@@ -14,10 +13,8 @@ module.exports = {
   },
 
   production: {
-    client: "sqlite3",
-    connection: {
-      filename: "./data/hobbits.db3",
-    },
+    client: "pg",
+    connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
     migrations: {
       directory: "./data/migrations",
